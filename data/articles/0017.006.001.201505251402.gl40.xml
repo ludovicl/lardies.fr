@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<document>
+	<title><![CDATA[GL40]]></title>
+	<allow_com>1</allow_com>
+	<template><![CDATA[article.php]]></template>
+	<chapo><![CDATA[<img src="data/images/projets/GL40Fitt.png" width="350px" alt="" />]]></chapo>
+	<content><![CDATA[<p>Projet réalisé dans le cadre de l'uv <a href="data/images/uv/gl40.png" target="_blank">GL40</a> de mon cursus UTBM. </p>
+<p>Le but de ce projet était de vérifier en pratique la <a href="http://fr.wikipedia.org/wiki/Loi_de_Fitts" target="_blank">Lois de Fitts</a></p>
+<p>
+Langage : C++ <br>
+Framework : QT
+</p>
+
+<p> Sources : <a href="https://github.com/ludovicl/GL-40-TP-loi-de-Fitts.git" target="_blank">https://github.com/ludovicl/GL-40-TP-loi-de-Fitts.git</a> </p>]]></content>
+	<tags><![CDATA[]]></tags>
+	<meta_description><![CDATA[]]></meta_description>
+	<meta_keywords><![CDATA[]]></meta_keywords>
+	<title_htmltag><![CDATA[]]></title_htmltag>
+	<galerie><![CDATA[]]></galerie>
+	<champArt_><![CDATA[<p style="text-align:center"><img src="data/images/projets/GL40Fitt.png" width="450px" alt="" /></p>]]></champArt_>
+</document>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+	<statique number="001" active="1" menu="non" url="accueil" template="static-home.php"><group><![CDATA[]]></group><name><![CDATA[Ludovic LARDIES]]></name><meta_description><![CDATA[]]></meta_description><meta_keywords><![CDATA[]]></meta_keywords><title_htmltag><![CDATA[]]></title_htmltag><galerie><![CDATA[]]></galerie></statique>
+	<statique number="002" active="1" menu="non" url="dlcv" template="static.php"><group><![CDATA[]]></group><name><![CDATA[Télécharger CV]]></name><meta_description><![CDATA[]]></meta_description><meta_keywords><![CDATA[]]></meta_keywords><title_htmltag><![CDATA[]]></title_htmltag><galerie><![CDATA[]]></galerie></statique>
+	<statique number="003" active="1" menu="non" url="cv" template="static.php"><group><![CDATA[]]></group><name><![CDATA[CV]]></name><meta_description><![CDATA[]]></meta_description><meta_keywords><![CDATA[]]></meta_keywords><title_htmltag><![CDATA[]]></title_htmltag><galerie><![CDATA[]]></galerie></statique>
+</document>

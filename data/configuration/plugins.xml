@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<document>
+	<plugin name="spxlightbox"></plugin>
+	<plugin name="artGalerie"></plugin>
+	<plugin name="plxMyLoremIpsum"></plugin>
+	<plugin name="champArt"></plugin>
+	<plugin name="plxMyContact"></plugin>
+	<plugin name="plxtoolbar"></plugin>
+</document>

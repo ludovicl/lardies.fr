@@ -1,0 +1,10 @@
+#champart {margin-bottom: 30px;}
+#champart p{margin-bottom: 10px;}
+#champart blockquote{background-color: #FFF; border: 1px solid #CCC; padding: 10px; margin-bottom: 30px;}
+#champart fieldset {border: 1px solid #3ea3cf; min-height: 130px; width: 900px;margin: 30px 0; padding: 0 150px 30px 30px; background: url(icon_gd.png) bottom right no-repeat;}
+#champart fieldset.article{width: 470px; min-height: 130px; margin: 30px 0; padding: 0 150px 30px 30px; background: url(icon_gd.png) bottom right no-repeat;}
+#champart fieldset legend {padding: 0 10px; margin-left: -20px; font-weight: bold; font-size: 1.5em; color: #3EA3CF;}
+#champart fieldset legend a {margin-left: 10px;}
+#champart ul{margin: 0; padding: 0;}
+#champart ul li{display: inline; list-style: none; margin-right: 20px;}
+

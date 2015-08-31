@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<document>
+	<title><![CDATA[TO52]]></title>
+	<allow_com>1</allow_com>
+	<template><![CDATA[article.php]]></template>
+	<chapo><![CDATA[<img src="data/images/projets/TO52-2.png" width="310px" alt="" />]]></chapo>
+	<content><![CDATA[<p>Projet réalisé pour le service de chirurgie cardiaque du CHU de Strasbourg dans le cadre de l'uv <a href="data/images/uv/to52.png" target="_blank">TO52</a> de mon cursus UTBM. </p>
+<p>L'application Android permet d'effectuer un échange de questions/réponses avec l'utilisateur.</p>
+
+<p>Langage  : Java<br>
+Système : Android
+</p>
+
+Sources : <a href="https://github.com/ludovicl/TO52-Android-Conversation.git" target = "_blank">https://github.com/ludovicl/TO52-Android-Conversation.git</a>]]></content>
+	<tags><![CDATA[]]></tags>
+	<meta_description><![CDATA[]]></meta_description>
+	<meta_keywords><![CDATA[]]></meta_keywords>
+	<title_htmltag><![CDATA[]]></title_htmltag>
+	<galerie><![CDATA[]]></galerie>
+	<champArt_><![CDATA[<img src="data/images/projets/TO52-2.png" width="350px" alt="" />
+<img src="data/images/projets/TO52-3.png" width="350px" alt="" />]]></champArt_>
+</document>

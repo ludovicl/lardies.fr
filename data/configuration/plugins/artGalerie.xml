@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<document>
+	<parameter name="root_dir" type="cdata"><![CDATA[book]]></parameter>
+	<parameter name="show_thumb" type="numeric">1</parameter>
+	<parameter name="theme" type="cdata"><![CDATA[Zoombox]]></parameter>
+	<parameter name="sortorder" type="cdata"><![CDATA[natural]]></parameter>
+</document>

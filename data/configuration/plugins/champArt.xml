@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<document>
+	<parameter name="label1.25" type="string">illustration</parameter>
+	<parameter name="champ1.25" type="string">illustration</parameter>
+	<parameter name="type1.25" type="string">ligne</parameter>
+	<parameter name="groupe1.25" type="string">Divers</parameter>
+</document>
