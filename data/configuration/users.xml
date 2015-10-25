@@ -4,8 +4,8 @@
 		<login><![CDATA[admin]]></login>
 		<name><![CDATA[CV Project]]></name>
 		<infos><![CDATA[]]></infos>
-		<password><![CDATA[CHANGEIT]]></password>
-		<salt><![CDATA[CHANGEIT]]></salt>
+		<password><![CDATA[]]></password>
+		<salt><![CDATA[]]></salt>
 		<email><![CDATA[]]></email>
 		<lang><![CDATA[fr]]></lang>
 	</user>

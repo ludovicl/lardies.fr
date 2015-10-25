@@ -7,7 +7,9 @@
         <h1><?php $plxShow->staticTitle(); ?></h1>
 		<?php $plxShow->staticContent(); ?>
 		
-		<a href="/index.php?contact" class="button-static"><i class="icon-mail"></i> Contactez moi </a>
+		<!-- <a href="/index.php?contact" class="button-static"><i class="icon-mail"></i> Contactez moi </a> -->
+		<a href="mailto:ludovic.lardies@icloud.com" class="button-static"><i class="icon-mail"></i> Contactez moi </a>
+
         <!-- <a href="<?php $plxShow->urlRewrite('feed.php?rss') ?>" class="button-static"><i class="icon-rss"></i> Suivez-moi </a> --> </div>
 
     </div>

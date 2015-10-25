@@ -33,7 +33,7 @@
 	<parametre name="homestatic">001</parametre>
 	<parametre name="hometemplate"><![CDATA[home.php]]></parametre>
 	<parametre name="urlrewriting">1</parametre>
-	<parametre name="gzip">0</parametre>
+	<parametre name="gzip">1</parametre>
 	<parametre name="feed_chapo">0</parametre>
 	<parametre name="feed_footer"><![CDATA[]]></parametre>
 	<parametre name="version">5.3</parametre>
