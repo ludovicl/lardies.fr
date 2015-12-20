@@ -25,7 +25,7 @@
   	  <p><a href="data/images/uv/ht08.png" target="_blank">HT08 – Techniques, économie et société</a></p>
   </div>
 </li>
-<li>  <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#utbms3">Deuxième semestre (Automne 2013)</button>
+<li>  <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#utbms3">Troisième semestre (Automne 2013)</button>
   <div id="utbms3" class="collapse">
 	  <p><a href="data/images/uv/st40.png" target="_blank">ST40 - Stage professionnel de longue durée ~effectué chez Parkeon (Besançon)~</a></p>	  
   </div>
@@ -172,7 +172,7 @@ Activités : création d’un logiciel de test pour la gestion de clés cryptogr
 		</tr>
 </table>   
 <hr>
-<h1>Centres d'téchnologique </h1>
+<h1>Centres d'intérêt</h1>
 <table>
 		<tr>
 			<td>Cinéma, séries</td>
