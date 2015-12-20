@@ -47,7 +47,7 @@ class update_5_1_4 extends plxUpdate{
 		@unlink(PLX_ROOT.$this->plxAdmin->aConf['racine_articles'].'index.html');
 		@unlink(PLX_ROOT.$this->plxAdmin->aConf['racine_commentaires'].'index.html');
 		@unlink(PLX_ROOT.$this->plxAdmin->aConf['racine_statiques'].'index.html');
-		@unlink(PLX_ROOT.'realisations.php');
+		@unlink(PLX_ROOT.'blog.php');
 		return true;
 	}
 

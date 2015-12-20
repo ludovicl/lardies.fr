@@ -115,8 +115,8 @@ class plxAdmin extends plxMotor {
 
 		# Actions sur le fichier htaccess
 		if(isset($content['urlrewriting']))
-			$this->htaccess($content['urlrewriting'], $global['racine']);
-
+			if(!$this->htaccess($content['urlrewriting'], $global['racine']))
+				return plxMsg::Error(sprintf(L_WRITE_NOT_ACCESS, '.htaccess'));
 
 		# Mise à jour du fichier parametres.xml
 		if(!plxUtils::write($xml,path('XMLFILE_PARAMETERS')))
@@ -134,6 +134,9 @@ class plxAdmin extends plxMotor {
 					return plxMsg::Error(L_SAVE_ERR.' config.php');
 			}
 		}
+
+		# changement de la langue en session
+		$_SESSION['lang'] = $global['default_lang'];
 
 		return plxMsg::Info(L_SAVE_SUCCESSFUL);
 
@@ -192,10 +195,12 @@ RewriteRule ^feed\/(.*)$ feed.php?$1 [L]
 		eval($this->plxPlugins->callHook('plxAdminHtaccess'));
 		# On écrit le fichier .htaccess à la racine de PluXml
 		$htaccess = trim($htaccess);
-		if($htaccess=='' AND is_file(PLX_ROOT.'.htaccess'))
+		if($htaccess=='' AND is_file(PLX_ROOT.'.htaccess')) {
 			unlink(PLX_ROOT.'.htaccess');
-		else
-			plxUtils::write($htaccess, PLX_ROOT.'.htaccess');
+			return true;
+		} else {
+			return plxUtils::write($htaccess, PLX_ROOT.'.htaccess');
+		}
 
 	}
 
@@ -835,6 +840,10 @@ RewriteRule ^feed\/(.*)$ feed.php?$1 [L]
 				$resDelCom = (!file_exists(PLX_ROOT.$this->aConf['racine_commentaires'].$globComs[$i]) AND $resDelCom);
 			}
 		}
+
+		# Hook plugins
+		if(eval($this->plxPlugins->callHook('plxAdminDelArticle'))) return;
+
 		# On renvoi le résultat
 		if($resDelArt AND $resDelCom) {
 			# mise à jour de la liste des tags
@@ -948,6 +957,7 @@ RewriteRule ^feed\/(.*)$ feed.php?$1 [L]
 		if(file_exists($filename)) {
 			unlink($filename);
 		}
+
 		if(!file_exists($filename))
 			return plxMsg::Info(L_COMMENT_DELETE_SUCCESSFUL);
 		else

@@ -69,7 +69,9 @@ class plxMotor {
 		# On parse le fichier de configuration
 		$this->getConfiguration($filename);
 		# Chargement du fichier de langue
-		loadLang(PLX_CORE.'lang/'.$this->aConf['default_lang'].'/core.php');
+		$lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : $this->aConf['default_lang'];
+		$this->aConf['default_lang'] = $lang;
+		loadLang(PLX_CORE.'lang/'.$lang.'/core.php');
 		# Contrôle de la présence du fichier 'version' de PluXml
 		if(!is_readable(PLX_ROOT.'version')) {
 			header('Content-Type: text/plain charset=UTF-8');
@@ -98,7 +100,6 @@ class plxMotor {
 		$var = parse_url($this->racine);
 		$this->path_url = str_replace(ltrim($var['path'], '\/'), '', ltrim($_SERVER['REQUEST_URI'], '\/'));
 		# Traitement des plugins
-		$lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : $this->aConf['default_lang'];
 		$this->plxPlugins = new plxPlugins($lang);
 		$this->plxPlugins->loadPlugins();
 		# Hook plugins
@@ -135,7 +136,7 @@ class plxMotor {
 			$this->cible = $this->aConf['homestatic'];
 			$this->template = $this->aStats[ $this->cible ]['template'];
 		}
-		elseif(!$this->get OR preg_match('/^(book|book\/page[0-9]*|\/?page[0-9]*)$/',$this->get)) {
+		elseif(!$this->get OR preg_match('/^(blog|blog\/page[0-9]*|\/?page[0-9]*)$/',$this->get)) {
 			$this->mode = 'home';
 			$this->template = $this->aConf['hometemplate'];
 			$this->bypage = $this->aConf['bypage']; # Nombre d'article par page
@@ -164,6 +165,13 @@ class plxMotor {
 		}
 		elseif($this->get AND preg_match('/^static([0-9]+)\/?([a-z0-9-]+)?/',$this->get,$capture)) {
 			$this->cible = str_pad($capture[1],3,'0',STR_PAD_LEFT); # On complete sur 3 caracteres
+			if(!empty($this->aConf['homestatic']) AND $capture[1]){
+				if($this->aConf['homestatic']==$this->cible){
+				header('Status: 301 Moved Permanently', false, 301);
+					header('Location: '.$this->urlRewrite());
+					exit();
+				}
+			}
 			if(!empty($this->aStats[$this->cible]) AND $this->aStats[$this->cible]['active'] AND $this->aStats[$this->cible]['url']==$capture[2]) {
 				$this->mode = 'static'; # Mode static
 				$this->template = $this->aStats[$this->cible]['template'];
@@ -197,7 +205,7 @@ class plxMotor {
 				$this->error404(L_UNKNOWN_CATEGORY);
 			}
 		}
-        elseif($this->get AND preg_match('/^archives\/([0-9]{4})[\/]?([0-9]{2})?[\/]?([0-9]{2})?/',$this->get,$capture)) {
+		elseif($this->get AND preg_match('/^archives\/([0-9]{4})[\/]?([0-9]{2})?[\/]?([0-9]{2})?/',$this->get,$capture)) {
 			$this->mode = 'archives';
 			$this->template = 'archives.php';
 			$this->bypage = $this->aConf['bypage_archives'];
@@ -207,7 +215,7 @@ class plxMotor {
 			if(!empty($capture[3])) $search .= $capture[3];
 			else $search .= '[0-9]{2}';
 			$this->motif = '/^[0-9]{4}.(?:[0-9]|home|,)*(?:'.$this->activeCats.'|home)(?:[0-9]|home|,)*.[0-9]{3}.'.$search.'[0-9]{4}.[a-z0-9-]+.xml$/';
-        }
+		}
 		elseif($this->get AND preg_match('/^tag\/([a-z0-9-]+)/',$this->get,$capture)) {
 			$this->cible = $capture[1];
 			$ids = array();
@@ -356,7 +364,7 @@ class plxMotor {
 		}
 		# détermination automatique de la racine du site
 		$this->aConf['racine'] = plxUtils::getRacine();
-		# On gère la non regression en cas d'ajout de paramètres sur une version de pluxml déjà installée
+		# On gère la non régression en cas d'ajout de paramètres sur une version de pluxml déjà installée
 		$this->aConf['bypage_admin'] = plxUtils::getValue($this->aConf['bypage_admin'],10);
 		$this->aConf['tri_coms'] = plxUtils::getValue($this->aConf['tri_coms'],$this->aConf['tri']);
 		$this->aConf['bypage_admin_coms'] = plxUtils::getValue($this->aConf['bypage_admin_coms'],10);
@@ -372,6 +380,8 @@ class plxMotor {
 		$this->aConf['timezone'] = plxUtils::getValue($this->aConf['timezone'],@date_default_timezone_get());
 		$this->aConf['thumbs'] = isset($this->aConf['thumbs']) ? $this->aConf['thumbs'] : 1;
 		$this->aConf['hometemplate'] = isset($this->aConf['hometemplate']) ? $this->aConf['hometemplate'] : 'home.php';
+		$this->aConf['custom_admincss_file'] = plxUtils::getValue($this->aConf['custom_admincss_file']);
+		$this->aConf['medias'] = isset($this->aConf['medias']) ? $this->aConf['medias'] : 'data/images/';		
 		if(!defined('PLX_PLUGINS')) define('PLX_PLUGINS', PLX_ROOT.$this->aConf['racine_plugins']);
 
 	}
@@ -808,7 +818,7 @@ class plxMotor {
 						$comment['filename'] = '_'.$artId.'.'.$time.'-'.$i.'.xml';
 					else # On publie le commentaire directement
 						$comment['filename'] =$artId.'.'.$time.'-'.$i.'.xml';
-				} while(file_exists($comment['filename']));
+				} while(file_exists(PLX_ROOT.$this->aConf['racine_commentaires'].$comment['filename']));
 				# On peut creer le commentaire
 				if($this->addCommentaire($comment)) { # Commentaire OK
 					if($this->aConf['mod_com']) # En cours de moderation
