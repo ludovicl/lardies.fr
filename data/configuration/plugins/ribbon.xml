@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<document>
-	<parameter name="type" type="string">stickybar</parameter>
-	<parameter name="title" type="string">images © Glenn Thomas</parameter>
-	<parameter name="url" type="string">http://dribbble.com/snootyfox</parameter>
-	<parameter name="display" type="string">right</parameter>
-	<parameter name="color" type="string">C36C53</parameter>
-</document>
