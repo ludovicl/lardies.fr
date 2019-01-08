@@ -1,18 +1,49 @@
 ---
-layout: default
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+
+
 ---
+<!DOCTYPE html>
+<html>
 
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hello Bulma!</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+  <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
 
-{% include career-profile.html %}
+<body>
+  <div class="columns is-gapless">
+    <div class="column is-half">
+      <section class="hero is-info is-fullheight">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+              Ludovic Lardies Ingénieur Logiciel
+            </h1>
+            <h2 class="subtitle">
+              Large subtitle
+            </h2>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="column is-half">
+      <section class="hero is-success is-fullheight">
+          <figure class="image">
+            <img src="images/background.jpg">
+            </figure>
 
-{% unless site.data.data.sidebar.education %}
-  {% include education.html %}
-{% endunless %}
+      </section>
+    </div>
+  </div>
 
-{% include experiences.html %}
+  </div>
 
-{% include projects.html %}
+</body>
 
-{% include publications.html %}
-
-{% include skills.html %}
+</html>
